@@ -20,6 +20,10 @@ app.use("/admin",AdminRoute)
 const MedecinRoute =require('./routes/RouteMedecin')
 app.use("/medecin",MedecinRoute)
 
+const testRoute =require('./routes/RoutePrononciation')
+app.use("/test",testRoute)
+
+
 
 
 

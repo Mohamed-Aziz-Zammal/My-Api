@@ -26,7 +26,8 @@ app.use("/test",testRoute)
 const Question6Route =require('./routes/RouteQuestion6')
 app.use("/Question6",Question6Route)
 
-
+const Question7Route =require('./routes/RouteQuestion7')
+app.use("/Question7",Question7Route)
 
 
 app.listen(3001, () => {console.log("Server started")});

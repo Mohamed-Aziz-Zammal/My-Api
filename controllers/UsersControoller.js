@@ -9,7 +9,7 @@ const jwt =require ('jsonwebtoken');
     res.json(newUsers)
 }*/
 const register = async (req,res)=>{
-    const { name,classe ,email,password} = req.body
+    const { name,date ,classe,email,password} = req.body
 
     const user = await UsersModel.findOne({name})
   
@@ -22,6 +22,7 @@ const register = async (req,res)=>{
     
     const newUser =new UsersModel({
       name :name,
+      date:date,
       classe:classe,
       email:email,
       password:hashedPassword 

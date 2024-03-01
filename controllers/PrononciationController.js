@@ -14,6 +14,7 @@ const onePrononciation = async (req,res)=>{
     const newPrononciation  = await PrononciationModel.findOne({_id})
 
     res.json(newPrononciation )
+    
 }
 
 

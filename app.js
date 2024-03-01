@@ -23,6 +23,8 @@ app.use("/medecin",MedecinRoute)
 const testRoute =require('./routes/RoutePrononciation')
 app.use("/test",testRoute)
 
+const Question6Route =require('./routes/RouteQuestion6')
+app.use("/Question6",Question6Route)
 
 
 

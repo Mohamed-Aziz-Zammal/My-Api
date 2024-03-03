@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const Question6Schema = new mongoose.Schema({
-    lettres:{
+    mots:{
         type: Array,
     },
     resltat:{

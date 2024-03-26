@@ -53,12 +53,39 @@ const login =async (req,res)=>{
     return res.json({token, userID:user._id})
   
   }
+ 
+  const getUser = async (req, res) => {
+    const { UserId } = req.params;
+    try {
+      const user = await UsersModel.findById(UserId);
+      res.json(user);
+    } catch (error) {
+      res.status(404).json({ message: 'user not found' });
+    }
+  };
+
+  const updateUser = async (req, res) => {
+    const { UserId } = req.params;
+    const { name,date ,classe,email } = req.body;
+    try {
+      const updateUser = await UsersModel.findByIdAndUpdate(
+        UserId,
+        { name,date ,classe,email },
+        { new: true }
+      );
+      res.json(updateUser);
+    } catch (error) {
+      res.status(404).json({ message: 'UserId not found' });
+    }
+  };
+
 
 
 
 
 module.exports={
      register ,
-     login
-
+     login,
+     getUser,
+     updateUser
 };

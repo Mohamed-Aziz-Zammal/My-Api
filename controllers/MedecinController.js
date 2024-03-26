@@ -24,8 +24,34 @@ const login =async (req,res)=>{
   
   }
 
+  const getMedecin = async (req, res) => {
+    const { MedecinID } = req.params;
+    try {
+      const medecin = await MedecinModel.findById(MedecinID);
+      res.json(medecin);
+    } catch (error) {
+      res.status(404).json({ message: 'medecin not found' });
+    }
+  };
+  const updateMedecin = async (req, res) => {
+    const { MedecinID } = req.params;
+    const { name,email } = req.body;
+    try {
+      const updateMedecin = await UsersModel.findByIdAndUpdate(
+        MedecinID,
+        { name,email },
+        { new: true }
+      );
+      res.json(updateMedecin);
+    } catch (error) {
+      res.status(404).json({ message: 'MedecinID not found' });
+    }
+  };
+
   module.exports={
    
-    login
+    login,
+    getMedecin,
+    updateMedecin
    
 };
